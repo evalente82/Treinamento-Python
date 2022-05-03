@@ -145,24 +145,46 @@ from time import sleep
 # num2 = random.randint(1,10)
 # print(num2)
 
-lista = []
-jogos = []
-quantidade = int(input('quantos jogos deseja sortear ? '))
-tot = 1
-while tot <= quantidade:
-    cont = 0
-    while True:
-        num = random.randint(1,60)
-        if num not in lista:
-            lista.append(num)
-            cont += 1
-        if cont >= 6:
-            break
-    lista.sort()
-    jogos.append(lista[:])
-    lista.clear()
-    tot += 1
+# lista = []
+# jogos = []
+# quantidade = int(input('quantos jogos deseja sortear ? '))
+# tot = 1
+# while tot <= quantidade:
+#     cont = 0
+#     while True:
+#         num = random.randint(1,60)
+#         if num not in lista:
+#             lista.append(num)
+#             cont += 1
+#         if cont >= 6:
+#             break
+#     lista.sort()
+#     jogos.append(lista[:])
+#     lista.clear()
+#     tot += 1
 
-for i, l in enumerate(jogos):
-    print(f'Jogo: {i+1}: {l}')
-    sleep(1)
+# for i, l in enumerate(jogos):
+#     print(f'Jogo: {i+1}: {l}')
+#     sleep(1)
+
+lista = []
+while True:
+    nome = str(input('Nome: '))
+    nota1 = float(input('Nota 1: '))
+    nota2 = float(input('Nota 2: '))
+    media = (nota1 + nota2) / 2
+    lista.append([nome, [nota1, nota2], media])
+    resp = str(input('Quer continuar? [S*N] '))
+    if resp in 'Nn':
+        break
+print('-'* 35)
+for i, a in enumerate(lista):
+    print(f'{i} - {a[0]} -- {a[2]}')
+while True:
+    print('-'* 35)
+    opc = int(input('Mostrar notas de qual aluno? (999 interrompe): '))
+    if opc == 999:
+        print('FINALIZANDO... ')
+        break
+    if opc <= len(lista) - 1:
+        print(f'Notas de {lista[opc][0]} são {lista[opc][1]}')
