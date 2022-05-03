@@ -111,29 +111,58 @@
 # print(f'os valores ímpares são: {lista[1]}')
 # print(lista)
 
-matriz = [[0,0,0,],[0,0,0,],[0,0,0]]
-sPar = mai = sCol = 0
+# matriz = [[0,0,0,],[0,0,0,],[0,0,0]]
+# sPar = mai = sCol = 0
 
-for linha in range(0,3):
-    for coluna in range(0,3):
-        matriz[linha][coluna] = int(input(f'digite um valor para [{linha}][{coluna}]: '))
+# for linha in range(0,3):
+#     for coluna in range(0,3):
+#         matriz[linha][coluna] = int(input(f'digite um valor para [{linha}][{coluna}]: '))
 
 
-for l in range(0,3):
-    for c in range(0,3):
-        print(f'[{matriz[l][c]}]', end='')
-        if matriz[l][c] % 2 == 0:
-            sPar += matriz[l][c]
-    print()
-print(f'a soma dos PARES é : {sPar}')
+# for l in range(0,3):
+#     for c in range(0,3):
+#         print(f'[{matriz[l][c]}]', end='')
+#         if matriz[l][c] % 2 == 0:
+#             sPar += matriz[l][c]
+#     print()
+# print(f'a soma dos PARES é : {sPar}')
 
-for l in range(0,3):#
-    sCol += matriz[l][2]
-print(f'a soma da terceira coluna é {sCol}')
+# for l in range(0,3):#
+#     sCol += matriz[l][2]
+# print(f'a soma da terceira coluna é {sCol}')
 
-for c in range(0,3):
-    if c == 0 :
-        mai = matriz[1][c]
-    elif matriz[1][c] > mai:
-        mai = matriz[1][c]
-print(f'o maior valor da segunda linha é {mai}')
+# for c in range(0,3):
+#     if c == 0 :
+#         mai = matriz[1][c]
+#     elif matriz[1][c] > mai:
+#         mai = matriz[1][c]
+# print(f'o maior valor da segunda linha é {mai}')
+
+import random
+from time import sleep
+
+# num = random.random()
+# num2 = random.randint(1,10)
+# print(num2)
+
+lista = []
+jogos = []
+quantidade = int(input('quantos jogos deseja sortear ? '))
+tot = 1
+while tot <= quantidade:
+    cont = 0
+    while True:
+        num = random.randint(1,60)
+        if num not in lista:
+            lista.append(num)
+            cont += 1
+        if cont >= 6:
+            break
+    lista.sort()
+    jogos.append(lista[:])
+    lista.clear()
+    tot += 1
+
+for i, l in enumerate(jogos):
+    print(f'Jogo: {i+1}: {l}')
+    sleep(1)

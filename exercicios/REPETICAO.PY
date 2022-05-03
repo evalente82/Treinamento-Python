@@ -15,9 +15,7 @@
 #     sexo = str(input('dados invalidos ! digite M ou F: ')).strip().upper()[0]
 # print('vc digitou {}'.format(sexo))
 
-from faulthandler import cancel_dump_traceback_later
-import random
-from tkinter import E
+
 
 # cont = 0
 # rand = random.randint(1,10)

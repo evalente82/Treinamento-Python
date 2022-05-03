@@ -17,7 +17,7 @@ def send(msg):
     client.send(message)
     print(client.recv(2048).decode(FORMAT))
     
-print("Digite uma palavra para criptografar // digite duas vezes 'sair' para encerrar: ")
+print("Digite uma palavra para criptografar // digite duas vezes 'sair': ")
 
 while True:
     nome = input()
